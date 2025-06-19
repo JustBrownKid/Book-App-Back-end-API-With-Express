@@ -9,6 +9,7 @@ const sendResponse = require('./utils/response');
 const mongoose = require('mongoose');
 const UserRoute = require ("./routes/UserRoute")
 const AuthRoute = require ("./routes/AuthRoute")
+const BookRoute = require ('./routes/BookRoute')
 
 const PORT = process.env.PORT
 app.listen(3000, '0.0.0.0', () => {
@@ -28,6 +29,7 @@ mongoose.connect(process.env.DB_URI, {
 
 // Route with middleware 
 app.use('/users', UserRoute);
+app.use('/book', BookRoute);
 app.use('/', AuthRoute);
 app.get('/', (req, res) => {
 
